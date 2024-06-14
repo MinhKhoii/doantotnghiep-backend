@@ -1,0 +1,126 @@
+<div class="main-content">
+    
+
+    <div class="main-content">
+        <div class="title">
+            <h3>Quản lý hóa đơn</h3>
+        </div>
+
+
+        <hr style="color: rgba(0,0,0,0.01);margin: 10px 0;">
+        <div class="box-search">
+            <form action="">
+                <span>Tìm kiếm: </span><input [(ngModel)]="searchTerm" placeholder="Tìm kiếm..." (input)="filterData($event)" type="text" placeholder="Nhập thông tin tìm kiếm">
+            </form>
+        </div>
+        <select class="change_active" [(ngModel)]="st" (change)="changene()"> 
+            <option value="0">Đơn hàng chờ xác nhận</option>
+            <option value="1">Đơn hàng đang giao</option>
+            <option value="2">Đơn hàng đã giao</option>
+        </select>
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            STT 
+                        </th>
+                       
+                        <th>
+                            Tên
+                        </th>
+                        <th>
+                            Ngày tạo
+                        </th>
+                        <th>
+                            Số điện thoại
+                        </th>
+
+                        <th>Thanh toán</th>
+                        <th>
+                            Trang Thái
+                        </th>
+                        
+                        <th>
+                            Tổng Tiền
+                        </th>
+                        <th>
+                            Chức năng
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data | paginate: {itemsPerPage: 10, currentPage: p };  let i = index">
+                        <td>
+                            {{i + 1 }}
+                        </td>
+                      
+                        <td>
+                            {{item.NguoiNhan}}
+                        </td>
+                        <td>
+                            {{item.NgayTao | date:'dd/MM/yyyy'}}
+                        </td>
+                        <td>
+                            {{item.DienThoaiNhan}}
+                        </td>
+                        
+                        <td>{{item.HinhThucThanhToan}}</td>
+
+                        <td style="color: green;">
+                            {{ (item.TrangThai === 0) ? "Đang chờ duyệt" : (item.TrangThai === 1) ? "Đang vận chuyển":"Đã giao"}}
+                         </td>
+
+                        <td>
+                            {{item.TongTien | number}} đ
+                        </td>
+    
+                        <td>                           
+                            <i class="fa-solid fa-pen-to-square" (click)="edit(item.MaHoaDon)"></i>
+                            <i class="fa-solid fa-trash" (click)="deleteData(item.MaHoaDon)"></i>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="pagination">
+            <ul>
+                <li>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (event) {
+      var showSetting = document.querySelector('.showmodel');
+      // Check if the clicked element has the specified ID
+      if (event.target.id === showSetting.getAttribute('data-target').substring(1)) {
+        // If the clicked element has the correct ID, set display to none for showSettingImg
+        if (showSetting) {
+          showSetting.style.display = 'block';
+        }
+      }
+    });
+
+    $(document).ready(function () {
+      $('.box-user').click(function () {
+        $('.info-user').toggleClass("hidden");
+      })
+
+      $("#iconclose").click(function () {
+        $('.showmodel').hide();
+      })
+
+      $('.box-manage-menu').click(function (e) {
+        e.preventDefault();
+        $('.menu-item__list').toggle();
+      })
+
+    }
+    )
+  </script>

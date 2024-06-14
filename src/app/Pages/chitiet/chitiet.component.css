@@ -1,0 +1,249 @@
+
+.items-center{
+    margin: 20px;
+    padding-left: 100px;
+}
+.items-center ul{
+    display: flex;
+    list-style: none;
+}
+.items-center ul li{
+    margin-left: 5px;
+}
+.items-center ul span{
+    margin-left: 5px;
+}
+.items-center ul li > a{
+    text-decoration: none;
+    color: black;
+}
+
+.product{
+    background-color: #ffff;
+    margin: 0 100px 0;
+    display: flex;
+    padding: 0px 40px;
+}
+.imgslider{
+    width: 40%;
+    
+}
+.imgslider > img{
+    width: 100%;
+}
+.imgslider .imgslider1 > img{
+    margin-left: 20px;
+    padding: 10px;
+    width: 15%;
+}
+.imgslider .imgslider1 img:hover{
+    border: 2px solid #ee4d2d;
+}
+.product .content{
+    margin: 10px 50px;
+    width: 50%;
+}
+.product .content > h2{
+    color: rgba(0,0,0,0.8);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.product .content .flex{
+    display: flex;
+    margin: 15px 0 15px;
+    align-items: center;
+}
+.flex1{
+    display: flex;
+    margin-top: 100px;
+    align-items: center;
+}
+.product .content .flex > i{
+    color: #ee4d2d;
+}
+.product .content .gia{
+    margin-top: 15px;
+    padding: 15px 20px;
+    background: #fafafa;
+    font-size: 1.875rem;
+    font-weight: 500;
+    color: #ee4d2d;
+}
+.product .content .flex label{
+    color: #757575;
+    width: 110px;
+    flex-shrink: 0;
+}
+.product .content .flex .wysiwyg{
+    max-height: 9.6rem;
+    line-height: 1.6em;
+    padding: 0 50px 0 0;
+}
+.product .content > a{
+    color: #ee4d2d;
+    text-decoration: none;
+    padding-left: 110px;
+}
+.flex > span{
+    padding-left: 70px;
+}
+.flex1 > span{
+    padding-left: 70px;
+}
+.phone-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+.flex a{
+    text-decoration: none;
+}
+.flex .btn{
+    align-items: center;
+    padding: 14px 30px 14px;
+    margin: 0 15px 15px 0;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.09);
+}
+.flex .btn-tinted{
+    background: rgba(255,87,34,.1);
+    border: 1px solid #ee4d2d;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.03);
+    color: #ee4d2d;
+    cursor: pointer;
+}
+.flex .btn-solid-primary{
+    color: #fff;
+    background: #ee4d2d;
+    cursor: pointer;
+}
+.flex .btn-tinted:hover{
+    background-color: #fff;
+    border: 1px solid #ee4d2d;
+}
+.flex .btn-solid-primary:hover{
+    background-color: #f05d40;;
+}
+
+
+.conten{
+    background-color: #ffff;
+    
+}
+.kP-bM3 {
+    margin: 15px 15px 15px 15px;
+    background: rgba(0,0,0,.02);
+    color: rgba(0,0,0,.87);
+    font-size: 1.125rem;
+    padding: .875rem;
+}
+.conten p{
+    margin: 15px 20px 15px 15px;
+    font-size: 20px;
+}
+
+.conten > h1 , h3{
+    margin: 15px;
+}
+.conten > img{
+    margin: 15px 25% 15px;
+}
+.conten > ul li{
+    width: 60%;
+    margin-left: 8%;
+    font-size: 20px; 
+}
+.conten .x{
+    padding-bottom: 100px;
+}
+
+
+
+.cart_quantity{
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+}
+.cart_quantity .add_quantity_cart{
+    border: 1px solid #9999;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.cart_quantity i{
+    font-size: 13px;
+}
+
+.cart_quantity .minus_quantity_cart{
+    border: 1px solid #9999;
+    cursor: pointer;
+    padding: 5px 8px;
+}
+
+#cart_quantity{
+    width: 45px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-top: 1px solid #9999;
+    border-bottom: 1px solid #9999;
+}
+
+
+/* Sản phẩm */
+/* .product{
+    padding: 0 25px 15px;
+} */
+.product1{
+    box-shadow: 0 0px 1px 0 rgba(0,0,0,.65);
+    text-decoration: none;
+    background-color: #ffff;
+    border-radius: 2px;
+}
+.product1 a > img{
+    width: 100%;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    transition: all 0.3s linear;
+}
+.product1 a{
+    text-decoration: none;
+}
+.product1:hover{
+    box-shadow: 0 0.0625rem 20px 0 rgba(0,0,0,.65);
+    transform: translateY(-.0625rem);
+}
+.product1 a > h4{
+    margin: 15px 10px 5px 10px;
+    color: black;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.product-1 h3{
+    margin: 0px 10px 5px 10px;
+    color: red;
+}
+.product-slide{
+    margin: 10px;
+    color: rgba(0,0,0,.65);
+}
+.product-right{
+    float: right;
+    margin-top: -20px;
+}
+.product-right1{
+    color: orange;
+    float: right;
+    margin-top: -20px;
+}
+
+

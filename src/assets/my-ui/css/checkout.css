@@ -1,0 +1,386 @@
+.fame-checkout{
+    background-color: whitesmoke;
+}
+
+/* Thông tin */
+
+.info_receive{
+    margin-top: 35px;
+}
+.info_receive .form-info{
+    padding: 0 28px;
+}
+
+.info_receive .form-info .lable_header h4{
+    font-size: 18px;
+    color: #363636;
+}
+
+.info_receive .form-info .lable_header a{
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+    margin-left: 3px;
+}
+
+.info_receive .form-info .lable_header a i{
+    font-size: 20px;
+}
+
+.info_receive .form-info .lable_header a:hover{
+    color: #ee4d2d;
+}
+
+.info_receive .form-info .lable_header .box-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-email,
+.box-fullname,
+.box-phone,
+.box-address,
+.box-province,
+.box-district,
+.code-sale{
+    position: relative;
+    height: 44px;
+    margin-top: 10px;
+}
+
+.box-address label,
+.code-sale label{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    line-height: 44px;
+    margin-left: 10px;
+    font-size: 14px;
+    width: 100%;
+    user-select: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    transition: all .2s linear;
+}
+
+#phuongthucthanhtoan{
+    width: 100%;
+    padding: 10px 5px;
+    margin-top: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#phuongthucthanhtoan option{
+    font-size: 18px;
+}
+
+.box-email input,
+.box-fullname input,
+.box-phone input,
+.box-address input,
+.code-sale input{
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    height: 44px;
+    padding-left: 10px;
+    border: 1px solid #9999;
+    vertical-align: middle;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 0;
+    transition: all 0.2 linear;
+}
+
+.box-email input:focus,
+.box-fullname input:focus,
+.box-phone input:focus,
+.box-address input:focus,
+.code-sale input:focus{
+    border: 2px solid #ee4d2d;
+}
+
+.box-phone #country-code{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    border: 1px solid #9999;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    outline: none;
+}
+
+.box-phone #country-code option{
+    padding: 10px 5px;
+}
+
+.box-province #billingProvince,
+.box-district #billingDistrict{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    border: 1px solid #9999;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 6.5px;
+    padding-top: 1.2em;
+    padding-bottom: 0.2em;
+}
+
+.box-province label,
+.box-district label{
+    position: absolute;
+    top: 0;
+    padding-top: 5px;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #9999;
+    width: 100%;
+    z-index: 100;
+    user-select: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    transition: all .2s linear;
+}
+
+.box-note #note{
+    border: 1px solid #9999;
+    outline: none;
+    width: 100%;
+    border-radius:5px;
+    height: auto;
+    box-sizing: border-box;
+    padding: .94em .8em;
+}
+
+.box-note #note:focus{
+    border: 1px solid #ee4d2d;
+}
+
+.box-note{
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Vận chuyển */
+.lable_header_right {
+    margin: 10px 0px 30px;
+    border-top: 1px solid #1111;
+    
+}
+.lable_header_right .lable_header1{
+    width: 100%;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.lable_header_right h4{
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.lable_header_right .box-transport,
+.lable_header_right .box-pay{
+    display: flex;
+    margin-top: 10px;
+    border: 1px solid #9999;
+    border-radius: 4px;
+    align-items: center;
+    padding: 14px;
+}
+
+.lable_header_right .box-transport .radio-wrapper,
+.lable_header_right .box-pay .radio-wrapper{
+    width: 10%;
+}
+
+.lable_header_right .box-transport .radio-wrapper input,
+.lable_header_right .box-pay .radio-wrapper input{
+    width: 18px;
+    height: 18px;
+    vertical-align: -4px;
+}
+
+.lable_header_right .box-transport .shippingMethod,
+.lable_header_right .box-pay .payMethod{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lable_header_right .box-transport .shippingMethod .transport_method,
+.lable_header_right .box-pay .payMethod .pay_method{
+    font-size: 14px;
+}
+
+.lable_header_right .box-transport .shippingMethod .shipping_price{
+    font-size: 14px;
+}
+
+.lable_header_right .box-pay .payMethod .pay_icon i{
+    font-size: 20px;
+    color: #555;
+}
+
+
+
+/* Đơn hàng */
+.info_order{
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+    border-left: 1px solid #1111;
+}
+
+.info_order .title{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0px 15px;
+    border-bottom: 1px solid #1111;
+}
+
+.info_order .content_cart{
+    border-bottom:1px solid #1111;
+}
+
+.info_order .content_cart .content-item{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info_order .content_cart .content-item .image_pro{
+    position: relative;
+}
+
+.info_order .content_cart .content-item .image_pro img{
+    width: auto;
+    height: 90px;
+    border-radius: 8px;
+    border: 1px solid #2222;
+    padding: 1px;
+}
+
+.info_order .content_cart  .content-item .image_pro .quantity-order{
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    font-size: 12px;
+    background-color: #ee4d2d;
+    border-radius: 40%;
+    color: #fff;
+    padding: 3px 5px;
+}
+
+.info_order .content_cart .content-item .name_pro{
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.info_order .content_cart .content-item .price_pro{
+    color: #ee4d2d;
+    font-size: 14px;
+}
+
+.code-sale{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.code-sale #codeSale{
+    width: 75%;
+    margin-left: 15px;
+}
+
+
+
+.total-price{
+    margin-top: 20px;
+    border-top: 1px solid #1111;
+    padding-top: 10px;
+}
+
+.total-price > div{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    color: #696969;
+    font-size: 14px;
+}
+
+.total-price .transportfee_box{
+    border-bottom: 1px solid #1111;
+    padding-bottom: 15px;
+}
+
+.total-price .total_box p{
+    font-size: 16px;
+}
+
+
+.total-price .total_box .totalPrice{
+    font-size: 20px;
+    color: #ee4d2d;
+    font-weight: 400;
+}
+
+.order-item-last{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item-last .item_back_cart{
+    font-size: 14px;
+}
+
+
+.order-item-last .item_back_cart .link_cart{
+    text-decoration: none;
+    color: black;
+}
+.order-item-last .item_back_cart:hover .link_cart{
+    color: #ee4d2d;
+}
+.order-item-last .item_back_cart:hover i{
+    transform: translateX(-5px);
+    color: #ee4d2d;
+}
+.order-item-last .item_back_cart i{
+    font-size: small;
+    color: black;
+    transition: all .2s linear;
+}
+
+
+
+
+.order-item-last button{
+    padding: 10px 20px;
+    font-size: 14px;
+    opacity: 0.8;
+    border-radius: 4px;
+    background-color: #ee4d2d;
+    color: #fff;
+    border:1px solid #ee4d2d;
+    cursor: pointer;
+}
+
+.order-item-last button:hover{
+    opacity: 1;   
+}
+
+
+.message-error{
+    color: #ee4d2d;
+}

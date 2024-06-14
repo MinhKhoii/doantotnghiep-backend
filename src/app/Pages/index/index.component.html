@@ -1,0 +1,782 @@
+
+
+<section>
+    <div class="hero">
+        <div class="shop-search">
+            <div class="shop-search-tick" >
+                <h1 class="tickid-shop">DANH MỤC</h1>
+                <div class="tickid-shop">
+                    <a [routerLink]="['/danhmuc']">Tất cả Sản Phẩm</a>
+                </div>
+                <div class="tickid-shop" *ngFor="let item of loaisp">
+                    <a href="/danhmuc/{{item.MaLoai}}">{{item.TenLoai}}</a>
+                </div>
+                <div class="tickid-shop">
+                    <a href="">Phụ Kiện</a>
+                </div>
+                <div class="tickid-shop">
+                    <a href="">Phụ Tùng </a>
+                    <ul>
+                        <li><a href="">Gối</a></li>
+                        <li><a href="">Vỏ + Ruột gối</a></li>
+                        <li><a href="">Phụ Tùng Nhập Khẩu</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner">
+            <!-- <input type="radio" name="inputslider" id="img1">
+            <input type="radio" name="inputslider" id="img2"> -->
+            <img src="./assets/my-ui/img/banner/1-15.jpg" alt="img1"
+                class="imgslider1">
+            <img src="./assets/my-ui/img/banner/1-15.jpg" alt="img1"
+                class="imgslider2">
+        </div>
+
+        <div class="banner1">
+            <img src="./assets/my-ui/img/banner/1-1.jpg" alt="">
+            <img src="./assets/my-ui/img/banner/2.jpg" alt="">
+            <img src="./assets/my-ui/img/banner/3-1.jpg" alt="">
+            <img src="./assets/my-ui/img/banner/2.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="niddle-banner">
+        <div class="niddle-banner-list">
+            <img src="./assets/my-ui/img/banner/flashsale.jpg" alt="">
+            
+        </div>
+    </div>
+
+    <div class="grid spacing">
+        <div class="col c-12 m-12 l-12">
+            <div class="pro-combo_header">
+                <div class="pro-combo_header-left">
+                    <h3>ĐANG KHUYỄN MÃI</h3>
+                </div>
+                <div class="pro-combo_header-right">
+                    <a href="">Xem tất cả <span> > </span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- sản phẩm -->
+        <div class="row product">
+            <div class="col c-6 m-4 l-2-4" *ngFor="let item of data.slice(5,10)">
+                <div class="product1">
+                    <a class="product-1" [routerLink]="['/chitiet',item.MaChiTietSanPham]">
+                        <div class="iteam">
+                            <!-- <div class="gia">
+                                10% <span>GIẢM</span>
+                            </div> -->
+                            <!-- <div class="mua">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div> -->
+                        </div>
+                        <img [src]="item.HinhAnh[0] ? 'http://localhost:3000/'+item.HinhAnh[0] : ''" alt="">
+                        <h4>{{item.TenSanPham}}</h4>
+                        <h3>{{item.GiaBan|number}}đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">{{item.TenLoai}}</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-11-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Kim Điệp </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-12-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Lăng Kính</h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-13-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Mộc Lan </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-14-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Sen Tuyết </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div> -->
+
+            
+        </div>
+    </div>
+
+    <div class="grid spacing">
+        <div class="col c-12 m-12 l-12">
+            <div class="pro-combo_header">
+                <div class="pro-combo_header-left">
+                    <h3>SẢN PHẨM MỚI</h3>
+                </div>
+                <div class="pro-combo_header-right">
+                    <a href="">Xem tất cả <span> > </span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- sản phẩm -->
+        <div class="row product">
+            <div class="col c-6 m-4 l-2-4" *ngFor="let item of data.slice(31,36)">
+                <div class="product1">
+                    <a class="product-1" [routerLink]="['/chitiet',item.MaChiTietSanPham]">
+                        <div class="iteam">
+                            <!-- <div class="gia">
+                                10% <span>GIẢM</span>
+                            </div> -->
+                            <!-- <div class="mua">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div> -->
+                        </div>
+                        <img [src]="item.HinhAnh[0] ? 'http://localhost:3000/'+item.HinhAnh[0] : ''" alt="">
+                        <h4>{{item.TenSanPham}}</h4>
+                        <h3>{{item.GiaBan|number}}đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">{{item.TenLoai}}</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-11-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Kim Điệp </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-12-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Lăng Kính</h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-13-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Mộc Lan </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-14-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Sen Tuyết </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div> -->
+
+            
+        </div>
+    </div>
+
+    <div class="grid spacing">
+        <div class="col c-12 m-12 l-12">
+            <div class="pro-combo_header">
+                <div class="pro-combo_header-left">
+                    <h3>SẢN PHẨM BÁN CHẠY</h3>
+                </div>
+                <div class="pro-combo_header-right">
+                    <a href="">Xem tất cả <span> > </span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- sản phẩm -->
+        <div class="row product">
+            <div class="col c-6 m-4 l-2-4" *ngFor="let item of data.slice(12,17)">
+                <div class="product1">
+                    <a class="product-1" [routerLink]="['/chitiet',item.MaChiTietSanPham]">
+                        <div class="iteam">
+                            <!-- <div class="gia">
+                                10% <span>GIẢM</span>
+                            </div> -->
+                            <!-- <div class="mua">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div> -->
+                        </div>
+                        <img [src]="item.HinhAnh[0] ? 'http://localhost:3000/'+item.HinhAnh[0] : ''" alt="">
+                        <h4>{{item.TenSanPham}}</h4>
+                        <h3>{{item.GiaBan|number}}đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">{{item.TenLoai}}</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-11-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Kim Điệp </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-12-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Lăng Kính</h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4 ">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-13-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Mộc Lan </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col c-6 m-4 l-2-4">
+                <div class="product1">
+                    <a class="product-1" href="">
+                        <img src="./assets/my-ui/img/product/Anh-bia-14-500x500.jpg" alt="">
+                        <h4>Set Chăn Ga Gối Modal Sen Tuyết </h4>
+                        <h3>2.078.000đ</h3>
+                        <div class="product-slide">
+                            <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                            <div class="product-right1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-left">Bộ Chăn Ga</div>
+                            <div class="product-right">Việt nam</div>
+                        </div>
+                    </a>
+                </div>
+            </div> -->
+
+            
+        </div>
+    </div>
+
+
+
+
+    <!-- <div class="cat-products_header">
+        <div class="cat-products_title">
+            <h2>XE TAY GA</h2>
+        </div>
+        <a href="">Xem tất cả <span> > </span></a>
+    </div>
+    <div class="cart-product">
+        <div class="cart-product1">
+            <div class="product2">
+                <a class="product-2" href="">
+                    <img src="./assets/my-ui/img/product/1.png" alt="">
+                    <h4>Xe máy Honda SH160i Thể Thao (2023) </h4>
+                    <h3>105.000.000đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">Honda</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="cart-product2">
+            <div class="product3">
+                <a class="product-3" href="">
+                    <img src="./assets/my-ui/img/product/1.png" alt="">
+                    <h4>Xe máy Honda SH160i Thể Thao (2023) </h4>
+                    <h3>105.000.000đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">Honda</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="product3">
+                <a class="product-3" href="">
+                    <img src="./assets/my-ui/img/product/1.png" alt="">
+                    <h4>Xe máy Honda SH160i Thể Thao (2023) </h4>
+                    <h3>105.000.000đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">Honda</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="cart-product2">
+            <div class="product3">
+                <a class="product-3" href="">
+                    <img src="./assets/my-ui/img/product/1.png" alt="">
+                    <h4>Xe máy Honda SH160i Thể Thao (2023) </h4>
+                    <h3>105.000.000đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">Honda</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="product3">
+                <a class="product-3" href="">
+                    <img src="./assets/my-ui/img/product/1.png" alt="">
+                    <h4>Xe máy Honda SH160i Thể Thao (2023) </h4>
+                    <h3>105.000.000đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">Honda</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div> -->
+
+    <div class="cat-products_header">
+        <div class="cat-products_title">
+            <h2>CHĂN GA</h2>
+        </div>
+        <a href="">Xem tất cả <span> > </span></a>
+    </div>
+    <div class="cart-product">
+        <div class="cart-product1" *ngFor="let item of data.slice(0,1)">
+            <div class="product2 ">
+                <a class="product-2" routerLink="chitiet.html">
+                    <div class="iteam">
+                        <div class="gia">
+                            10% <span>GIẢM</span>
+                        </div>
+                        <!-- <div class="mua">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div> -->
+                    </div>
+                    <img [src]="item.HinhAnh[0] ? 'http://localhost:3000/'+item.HinhAnh[0] : ''" alt="">
+                    <h4>{{item.TenSanPham}}</h4>
+                    <h3>{{item.GiaBan|number}}đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">{{item.TenLoai}}</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="cart-product2">
+            <div class="product3" *ngFor="let item of data.slice(3,5)">
+                <a class="product-3" routerLink="chitiet.html">
+                    <div class="iteam">
+                        <!-- <div class="gia">
+                            10% <span>GIẢM</span>
+                        </div> -->
+                        <!-- <div class="mua">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div> -->
+                    </div>
+                    <img [src]="item.HinhAnh[0] ? 'http://localhost:3000/'+item.HinhAnh[0] : ''" alt="">
+                    <h4>{{item.TenSanPham}}</h4>
+                    <h3>{{item.GiaBan|number}}đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">{{item.TenLoai}}</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="cart-product2">
+            <div class="product3" *ngFor="let item of data.slice(6,8)">
+                <a class="product-3" [routerLink]="['/chitiet',item.MaChiTietSanPham]">
+                    <div class="iteam">
+                        <!-- <div class="gia">
+                            10% <span>GIẢM</span>
+                        </div> -->
+                        <!-- <div class="mua">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div> -->
+                    </div>
+                    <img [src]="item.HinhAnh[0] ? 'http://localhost:3000/'+item.HinhAnh[0] : ''" alt="">
+                    <h4>{{item.TenSanPham}}</h4>
+                    <h3>{{item.GiaBan|number}}đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">{{item.TenLoai}}</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- <div class="product3">
+                <a class="product-3" href="">
+                    <img src="./assets/my-ui/img/product/1.png" alt="">
+                    <h4>Xe máy Honda SH160i Thể Thao (2023) </h4>
+                    <h3>105.000.000đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">Honda</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div> -->
+
+        </div>
+
+    </div>
+
+    <div class="cat-products_header">
+        <div class="cat-products_title1">
+            <h2>TIÊU ĐỀ TIN TỨC</h2>
+        </div>
+
+        <a href=""> > </a>
+    </div>
+    <div class="news_slider_item">
+        <div class="new_slider_item">
+            <a href="">
+                <img src="./assets/my-ui/img/banner/17-300x300.png" alt="">
+                <h2>Phân biệt hai loại vải modal, vải tencel</h2>
+            </a>
+            <p>Chất vải tencel, vải modal ngày càng được ưa chuộng với đặc tính tự nhiên:...					
+            </p>
+            <div class="new_slider_item1">
+                <a href="">Xem thêm</a>
+            </div>
+
+        </div>
+        <div class="new_slider_item">
+            <a href="">
+                <img src="./assets/my-ui/img/banner/22-300x300.png" alt="">
+                <h2>11 yếu tố ảnh hưởng đến giấc ngủ ngon</h2>
+            </a>
+            <p>Giấc ngủ ở mọi lứa tuổi luôn được coi trọng. Như nào được coi là...					
+            </p>
+            <div class="new_slider_item1">
+                <a href="">Xem thêm</a>
+            </div>
+
+        </div>
+        <div class="new_slider_item">
+            <a href="">
+                <img src="./assets/my-ui/img/banner/dem-mat-sin-300x300.jpg" alt="">
+                <h2>Họa tiết chevron và những ý tưởng độc đáo cho phòng ngủ</h2>
+            </a>
+            <p>Chevron là gì? Chervon là từ tiếng Anh mang ý nghĩa dải hình chữ V...					
+            </p>
+            <div class="new_slider_item1">
+                <a href="">Xem thêm</a>
+            </div>
+
+        </div>
+        <div class="new_slider_item">
+            <a href="">
+                <img src="./assets/my-ui/img/banner/nana-nau1-300x300.jpg" alt="">
+                <h2>Bốn vật dụng hữu ích quen thuộc tẩy vết lem màu của vải</h2>
+            </a>
+            <p>Trong cuộc sống, đôi khi quần áo của bạn bị bẩn lem mà không giặt...					
+            </p>
+            <div class="new_slider_item1">
+                <a href="">Xem thêm</a>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; color: black; font-size: 24px;">
+        
+    </div>
+</section>
+

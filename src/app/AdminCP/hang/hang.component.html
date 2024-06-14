@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="title">
+        <h3>Quản lý hãng</h3>
+    </div>
+    <form class="row" action="" method="post">
+        <input type="number" name="productcategoryid" id="productcategoryid" ng-model="productcategoryid"
+            style="display: none;">
+        <div class="col c-12 m-6 l-6 form-input">
+            <input [(ngModel)]="datas.MaHang" type="text" hidden>
+            <label for="tenloai">Tên Hãng</label>
+            <input [(ngModel)]="datas.TenHang" type="text" name="TenLoai" id="tenloai"
+                placeholder="Nhập thông tin loại sản phẩm" class="form-control">
+        </div>
+
+        <div class="col c-12 m-12 l-12 form-button">
+            <button (click)="addData()" type="button" class="btn-edit">{{btn}}</button>
+            <button type="button" class="btn-refresh">Làm mới</button>
+        </div>
+    </form>
+
+
+    <hr style="color: rgba(0,0,0,0.01);margin: 10px 0;">
+    <div class="box-search">
+        <form action="">
+            <span>Tìm kiếm: </span><input type="text" placeholder="Nhập thông tin tìm kiếm">
+        </form>
+    </div>
+
+    <div class="box-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        STT
+                    </th>
+                    <th>
+                        Tên Hãng
+                    </th>
+
+                    <th>
+                        Chức năng
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data | paginate: {itemsPerPage: 10, currentPage: p}; let i = index">
+                    <td>
+                        {{ i +1 }}
+                    </td>
+                    <td>
+                        {{ item.TenHang }}
+                    </td>
+
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <!-- The Modal -->
+                        <i class="fa-solid fa-pen-to-square" (click)="edit(item.MaHang)"></i>
+                        <i class="fa-solid fa-trash" (click)="deleteData(item.MaHang)"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <ul>
+                <li>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+

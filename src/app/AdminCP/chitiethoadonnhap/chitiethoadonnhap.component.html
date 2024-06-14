@@ -1,0 +1,151 @@
+<div class="main-content">
+    <div class="title">
+        <h3>Quản lý Chi Tiết Hóa đơn nhập</h3>
+    </div>
+    <form class="row" action="" method="post">
+        <input type="number" name="productcategoryid" id="productcategoryid" ng-model="productcategoryid"style="display: none;">
+        <div class="col c-12 m-6 l-6 form-input">
+            <input [(ngModel)]="datas.MaChiTietHoaDonNhap" type="text" hidden>
+
+            <label for="NgayNhap">Hóa đơn nhập</label>
+                <input [value]="id" type="text" name="NgayNhap" placeholder="Nhập thông tin loại sản phẩm"
+                    class="form-control" readonly disabled>
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="loaisanpham">Sản phẩm</label>
+            <select name="loaisanpham" (change)="changeproduct($event)" id="loaisanpham"
+                class="form-control">
+                <option *ngFor="let item of sp" [value]="item.MaSanPham">{{item.TenSanPham}}
+                </option>
+            </select>
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="kichthuoc">Tên Kich Thước</label>
+            <select name="kichthuoc" [(ngModel)]="datas.MaKichThuoc" id="kichthuoc" class="form-control">
+                <option *ngFor="let item of kt" [value]="item.MaKichThuoc">{{item.TenKichThuoc}}</option>
+            </select>
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="mau">Màu</label>
+            <select name="mau" [(ngModel)]="datas.MaMau" id="kichthuoc" class="form-control">
+                <option *ngFor="let item of mau" [value]="item.MaMau">{{item.TenMau}}</option>
+            </select>
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="NgayNhap">Số lượng</label>
+            <input [(ngModel)]="datas.SoLuong" type="text" name="NgayNhap" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="NgayNhap">Giá nhập</label>
+            <input [(ngModel)]="datas.GiaNhap" type="text" name="NgayNhap" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-12 l-12 form-button">
+            <button (click)="addData()" type="button" class="btn-edit">{{btn}}</button>
+            <button type="button" class="btn-refresh">Làm mới</button>
+        </div>
+    </form>
+
+
+    <hr style="color: rgba(0,0,0,0.01);margin: 10px 0;">
+    
+
+    <div class="box-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        STT
+                    </th>
+                    <th>
+                        Mã HĐN
+                    </th>
+                    <th>
+                        Sản Phẩm
+                    </th>
+                    <th>
+                        Số lượng
+                    </th>
+                    <th>
+                        Giá nhập
+                    </th>
+                    <th>
+                        Chức năng
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data | paginate: {itemsPerPage: 10, currentPage: p }; let i = index">
+                    <td>
+                        {{i + 1}}
+                    </td>
+                    <td>
+                        {{ item.MaHoaDonNhap }}
+                    </td>
+                    <td>
+                        {{ item.TenSanPham +" - "+item.TenMau+" - "+item.TenKichThuoc }}
+                    </td>
+                    <td>
+                        {{item.SoLuong}}
+                    </td>
+                    <td>
+                        {{item.GiaNhap | number}}
+                    </td>
+                    <td>
+
+
+                        <!-- The Modal -->
+                        <i class="fa-solid fa-pen-to-square" (click)="edit(item.MaChiTietHoaDonNhap)"></i>
+
+                        <i class="fa-solid fa-trash" (click)="deleteData(item.MaChiTietHoaDonNhap)"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination">
+        <ul>
+            <li>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (event) {
+        var showSetting = document.querySelector('.showmodel');
+        // Check if the clicked element has the specified ID
+        if (event.target.id === showSetting.getAttribute('data-target').substring(1)) {
+            // If the clicked element has the correct ID, set display to none for showSettingImg
+            if (showSetting) {
+                showSetting.style.display = 'block';
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        $('.box-user').click(function () {
+            $('.info-user').toggleClass("hidden");
+        })
+
+        $("#iconclose").click(function () {
+            $('.showmodel').hide();
+        })
+
+        $('.box-manage-menu').click(function (e) {
+            e.preventDefault();
+            $('.menu-item__list').toggle();
+        })
+
+    }
+    )
+</script>

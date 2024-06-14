@@ -1,0 +1,198 @@
+<div class="main-content">
+    <div class="title">
+        <h3>Quản lý Người dùng</h3>
+    </div>
+    <form class="row" action="" method="post">
+        <input type="number" name="productcategoryid" id="productcategoryid" ng-model="productcategoryid"style="display: none;">
+        <div class="col c-12 m-6 l-6 form-input">
+            <input [(ngModel)]="datas.MaNguoiDung" type="text" hidden>
+
+            <label for="PassWord">PassWord</label>
+            <input [(ngModel)]="datas.PassWord" type="text" name="PassWord" id="PassWord"
+                placeholder="Nhập thông tin loại sản phẩm" class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="NgaySinh">Ngày Sinh</label>
+            <input [(ngModel)]="datas.NgaySinh" type="date" name="NgaySinh" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="Anh">Ảnh</label>
+            <input [(ngModel)]="datas.Anh" type="text" name="Anh" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="HoTen">Họ Tên</label>
+            <input [(ngModel)]="datas.HoTen" type="text" name="HoTen" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="DiaChi">Địa Chỉ</label>
+            <input [(ngModel)]="datas.DiaChi" type="text" name="DiaChi" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="DienThoai">Diện Thoại</label>
+            <input [(ngModel)]="datas.DienThoai" type="text" name="DienThoai" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="Email">Email</label>
+            <input [(ngModel)]="datas.Email" type="text" name="Email" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="Quyen">Quyền</label>
+            <input [(ngModel)]="datas.Quyen" type="text" name="Quyen" placeholder="Nhập thông tin loại sản phẩm"
+                class="form-control">
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="trangthai">Trạng thái</label>
+            <select [(ngModel)]="datas.TrangThai" name="trangthai" id="trangthai"
+                class="form-control">
+                <option value="1">Hoạt động</option>
+                <option value="0">Ngưng hoạt động</option>
+            </select>
+        </div>
+
+        <div class="col c-12 m-12 l-12 form-button">
+            <button (click)="addData()" type="button" class="btn-edit">{{btn}}</button>
+            <button type="button" class="btn-refresh">Làm mới</button>
+        </div>
+    </form>
+
+
+    <hr style="color: rgba(0,0,0,0.01);margin: 10px 0;">
+    <div class="box-search">
+        <form action="">
+            <span>Tìm kiếm: </span><input type="text" placeholder="Nhập thông tin tìm kiếm">
+        </form>
+    </div>
+
+    <div class="box-table" style="overflow-x: scroll;">
+        <table >
+            <thead >
+                <tr>
+                    <th>
+                        STT
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        PassWord
+                    </th>
+                    <th>
+                        Ngày Sinh
+                    </th>
+                    <th>
+                        Ảnh
+                    </th>
+                    <th>
+                        Họ Tên
+                    </th>
+                    <th>
+                        Địa Chỉ
+                    </th>
+                    <th>
+                        Điện Thoại
+                    </th>
+                    
+                    <th>
+                        Trạng Thái
+                    </th>
+                    <th>
+                        Chức năng
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data | paginate: {itemsPerPage: 10, currentPage: p }; let i = index">
+                    <td>
+                        {{ i + 1 }}
+                    </td>
+                    <td>
+                        {{item.Email}}
+                    </td>
+                    <td>
+                        {{ item.PassWord }}
+                    </td>
+                    <td>
+                        {{item.NgaySinh | date:'dd/MM/yyyy'}}
+                    </td>
+                    <td>
+                        <img style="width:40px;cursor: pointer;"  [src]="item.duongdan ? ('http://localhost:3000'+item.duongdan) : '/assets/admin-ui/img/1.png'" alt="">
+                    </td>
+                    <td>
+                        {{ item.HoTen }}
+                    </td>
+                    <td>
+                        {{item.DiaChi}}
+                    </td>
+                    <td>
+                        {{item.DienThoai}}
+                    </td>
+                    
+                    <td>
+                        {{item.TrangThai.data[0] === 0 ? 'Không hd' : 'Hoạt động'}}
+                    </td>
+                    <td>
+
+                        <i class="fa-solid fa-pen-to-square" (click)="edit(item.MaNguoiDung)"></i>
+                        <!-- The Modal -->
+                        <i class="fa-solid fa-trash" (click)="deleteData(item.MaNguoiDung)"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+      
+    </div>
+    <div class="pagination">
+        <ul>
+            <li>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </li>
+           
+        </ul>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (event) {
+        var showSetting = document.querySelector('.showmodel');
+        // Check if the clicked element has the specified ID
+        if (event.target.id === showSetting.getAttribute('data-target').substring(1)) {
+            // If the clicked element has the correct ID, set display to none for showSettingImg
+            if (showSetting) {
+                showSetting.style.display = 'block';
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        $('.box-user').click(function () {
+            $('.info-user').toggleClass("hidden");
+        })
+
+        $("#iconclose").click(function () {
+            $('.showmodel').hide();
+        })
+
+        $('.box-manage-menu').click(function (e) {
+            e.preventDefault();
+            $('.menu-item__list').toggle();
+        })
+
+    }
+    )
+</script>

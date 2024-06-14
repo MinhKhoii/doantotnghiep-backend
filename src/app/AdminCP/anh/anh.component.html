@@ -1,0 +1,142 @@
+<div class="main-content">
+    <div class="title">
+        <h3>Quản lý ảnh</h3>
+    </div>
+    <form class="row" action="" method="post">
+        <input type="number" name="productcategoryid" id="productcategoryid" ng-model="productcategoryid"
+            style="display: none;">
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <input [(ngModel)]="datas.MaAnh" type="text" hidden>
+            <label for="MaMau">Mã Màu</label>
+            <select name="MaMau" [(ngModel)]="datas.MaMau" id="MaMau"
+                class="form-control" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let item of mau" [value]="item.MaMau">{{item.TenMau}}
+                </option>
+            </select>
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input" style="margin-top: 30px;">
+            <label style="padding-right: 50px;" for="anh">Ảnh :</label>
+            <input #fileinput type="file" (change)="upfile($event)" id="file" />
+            <div style="margin-top: 5px;">
+                <img [src]="imageSrc" style="width: 100px;" alt="">
+            </div>
+            <!-- <button type="button" (click)="uploadFile()">Upload</button> -->
+        </div>
+
+        <div class="col c-12 m-6 l-6 form-input">
+            <label for="MaSanPham">Tên sản phẩm</label>
+            <select name="MaSanPham" [(ngModel)]="datas.MaChiTietSanPham" id="mau" class="form-control" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let item of ct" [value]="item.MaChiTietSanPham">{{item.TenSanPham}}</option>
+            </select>
+        </div>
+   
+        <div class="col c-12 m-12 l-12 form-button">
+            <button (click)="addData()" type="button" class="btn-edit">{{btn}}</button>
+            <button type="button" class="btn-refresh">Làm mới</button>
+        </div>
+    </form>
+
+    <hr style="color: rgba(0,0,0,0.01);margin: 10px 0;">
+    <div>
+        <select>
+            <option value="1">đỏ</option>
+            <option value="2">đen</option>
+        </select>
+    </div>
+    <div class="box-search">
+        <form action="">
+            <span>Tìm kiếm: </span><input type="text" placeholder="Nhập thông tin tìm kiếm">
+        </form>
+    </div>
+
+    <div class="box-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        STT 
+                    </th>
+                    <th>
+                        Mã Chitiet
+                    </th>
+                    <th>
+                        Mã Màu
+                    </th>
+                    <th>
+                        Ảnh
+                    </th>
+
+                    <th>
+                        Chức năng
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data | paginate: {itemsPerPage: 5, currentPage: p }; let i = index">
+                    <td>
+                        {{ i + 1 }}
+                    </td>
+                    <td>
+                        {{item.MaChiTietSanPham}}
+                    </td>
+                    <td>
+                        {{ item.MaMau }}
+                    </td>
+                    <td>
+                        <img style="width: 150px;object-fit: cover;" [src]="'http://localhost:3000/'+item.DuongDan" alt="">
+                    </td>
+
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <!-- <button (click)="edit(item.IDMaAnh)" type="button" class="bbbb"> Sửa</button> -->
+                        <i class="fa-solid fa-pen-to-square" (click)="edit(item.MaAnh)"></i>
+                        <!-- The Modal -->
+                        <i class="fa-solid fa-trash" (click)="deleteData(item.MaAnh)"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        
+    </div>
+    <div class="pagination">
+        <ul>
+            <li>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (event) {
+        var showSetting = document.querySelector('.showmodel');
+        // Check if the clicked element has the specified ID
+        if (event.target.id === showSetting.getAttribute('data-target').substring(1)) {
+            // If the clicked element has the correct ID, set display to none for showSettingImg
+            if (showSetting) {
+                showSetting.style.display = 'block';
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        $('.box-user').click(function () {
+            $('.info-user').toggleClass("hidden");
+        })
+
+        $("#iconclose").click(function () {
+            $('.showmodel').hide();
+        })
+
+        $('.box-manage-menu').click(function (e) {
+            e.preventDefault();
+            $('.menu-item__list').toggle();
+        })
+
+    }
+    )
+</script>

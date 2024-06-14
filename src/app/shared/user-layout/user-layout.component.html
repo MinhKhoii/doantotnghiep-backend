@@ -1,0 +1,100 @@
+<header>
+    <div class="container">
+        <div class="container1">
+            <div class=" container1-1">
+                Tải ứng dụng 
+            </div>
+            <hr style="margin-right: 10px;">
+            <div class=" container1-1">
+                <i class="fa-solid fa-phone"></i> 198765432
+            </div>
+            <hr style="margin-right: 10px;">
+            <div class=" container1-1">
+                <i class="fa-solid fa-envelope"></i> changa123gmail.com
+            </div>
+        </div>
+        <div class="container2">
+            <div class="container2-1">
+                <ul class="navbar-link">
+                    <li><img src="./assets/my-ui/img/vn.png" alt=""></li>
+                    <li><a (click)="checkk()">Tin tức</a></li>
+                    <li><a (click)="checkk()">Liên hệ</a></li>
+                    <li><a (click)="checkk()">Đăng ký</a></li>
+                    <hr style="margin-right: 10px;">
+                    <li *ngIf="!customer"><a [routerLink]="['/login']">Đăng nhập</a></li>
+                    <li *ngIf="customer"><div class="header__top__right__language">
+                            <a>Xin chào,{{customer.HoVaTen}}</a>
+                            <ul style="list-style: none; display: none;">                                  
+                                <li (click)="logout()"><a style="color: #fff">Longout</a></li>
+                            </ul>
+                        
+                            <!-- <a style="color: black"><i class="fa fa-user"></i> Login</a>
+                            <span class="arrow_carrot-down"></span>
+                            <ul>
+                                <li><a >Register</a></li>
+                            </ul> -->
+                        
+                    </div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header-search">
+        <div class="header-navbar">
+            <a [routerLink]="['/']" ><img src="./assets/my-ui/img/logo/logo-nanara-1024x358.png"
+                    alt=""></a>
+        </div>
+
+        <div class="search-header">
+            <input type="text" [(ngModel)]="searchkey" (keyup.enter)="search()" placeholder="Tìm kiếm.....">
+            <div class="searchbar">Toàn bộ của hàng</div>
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="cart-drawer">
+            <a [routerLink]="['/giohang']"><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
+        </div>
+    </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer>
+    <div class="footer_menu">
+        <div class="footer_menu_content">
+            <div class="footer_menu1">
+                <h3>CHĂM SÓC KHÁCH HÀNG</h3>
+                <ul>
+                    <li><a href="">Trung Tâm Trợ Giúp</a></li>
+                    <li><a href="">Hướng Dẫn Mua Hàng</a></li>
+                    <li><a href="">Chính Sách Vận Chuyển</a></li>
+                </ul>
+            </div>
+            <div class="footer_menu1">
+                <h3>VỀ CHÚNG TÔI</h3>
+                <ul>
+                    <li><a href="">Về Chăn Ga NANARA</a></li>
+                    <li><a href="">Chính Sách Thanh Toán</a></li>
+                    <li><a href="">Điều Khoản Chính Sách</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer_menu_conten">
+            <div class="footer_menu1">
+                <h3>THEO DÕI CHÚNG TÔI</h3>
+                <ul>
+                    <li><a href=""><i class="fa-brands fa-facebook"></i> Faceboock</a></li>
+                    <li><a href=""><i class="fa-brands fa-youtube"></i> Youtube</a></li>
+                </ul>
+            </div>
+            <div class="footer_menu1">
+                <h3>ĐI TỚI CỬA HÀNG XE NAM TIẾN</h3>
+                <ul>
+                    <li><a href="">Trung Tâm Trợ Giúp</a></li>
+                    <li><a href="">Hướng Dẫn Mua Hàng</a></li>
+                    <li><a href="">Chính Sách Vận Chuyển</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

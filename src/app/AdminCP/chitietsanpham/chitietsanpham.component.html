@@ -1,0 +1,182 @@
+<div class="main-content">
+    <div class="title">
+        <h3>Quản lý chi tiết sản phẩm</h3>
+    </div>
+    <div class="gird box-manage">
+        <form class="row" action="" method="post">
+            <input type="number" name="productid" id="productid" style="display: none;">
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <input [(ngModel)]="datas.MaChiTietSanPham" type="text" hidden>
+                <label for="tensanpham">Tên sản phẩm</label>
+                <select name="tensanpham" [(ngModel)]="datas.MaSanPham" id="tensanpham" class="form-control">
+                    <option *ngFor="let item of sploai" [value]="item.MaSanPham">{{item.TenSanPham}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="mau">Tên Màu</label>
+                <select name="mau" [(ngModel)]="datas.MaMau" id="mau" class="form-control">
+                    <option *ngFor="let item of mau" [value]="item.MaMau">{{item.TenMau}}</option>
+                </select>
+            </div>
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="kichthuoc">Tên Kich Thước</label>
+                <select name="kichthuoc" [(ngModel)]="datas.MaKichThuoc" id="kichthuoc" class="form-control">
+                    <option *ngFor="let item of kichthuoc" [value]="item.MaKichThuoc">{{item.TenKichThuoc}}</option>
+                </select>
+            </div>
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="GiaBan">Giá bán</label>
+                <input type="text" [(ngModel)]="datas.GiaBan" name="GiaBan" id="GiaBan"
+                    placeholder="Nhập mô tả ngắn sản phẩm" class="form-control">
+            </div>
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="SoLuongTon">Số lượng</label>
+                <input type="text" [(ngModel)]="datas.SoLuongTon" name="SoLuongTon" id="SoLuongTon"
+                    placeholder="Nhập mô tả ngắn sản phẩm" class="form-control">
+            </div>
+
+            <!-- <div class="col c-12 m-6 l-6 form-input" style="margin-top: 20px;">
+                    <input type="file" ng-change="upfile()" ng-model="selectedFile" id="file" />
+                    <div style="margin-top: 5px;">
+                        <img ng-src="{{imageSrc}}" style="width: 200px;" alt="">
+                    </div>
+                    <button type="button" ng-click="uploadFile()">Upload</button>
+
+                </div> -->
+
+            <div class="col c-12 m-12 l-12 form-button">
+                <button (click)="addData()" type="button" class="btn-edit">{{btn}}</button>
+                <button type="button" class="btn-refresh">Làm mới</button>
+            </div>
+        </form>
+    </div>
+
+    <hr style="color: rgba(0,0,0,0.01);margin: 10px 0;">
+    <div class="box-search">
+        <form action="">
+            <span>Tìm kiếm: </span><input type="text" placeholder="Nhập thông tin tìm kiếm">
+        </form>
+    </div>
+
+    <div class="box-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        STT
+                    </th>
+                    <th>
+                        Tên sản phẩm
+                    </th>
+                    <th>
+                        Tên màu
+                    </th>
+                    <th>
+                        Mã kích thước
+                    </th>
+                    <th>
+                        Ảnh
+                    </th>
+                    <th>
+                        Giá bán
+                    </th>
+                    <th>
+                        Số lượng
+                    </th>
+                    <th>
+                        Chức năng
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data | paginate: {itemsPerPage: 6, currentPage: p }; let i = index">
+                    <td>
+                        {{ i + 1 }}
+                        <!-- {{item.MaChiTietSanPham }} -->
+                    </td>
+                    
+                    <td>
+                        {{item.TenSanPham }}
+                    </td>
+                    <td>
+                        {{item.TenMau}}
+                    </td>
+                    <td>
+                        {{item.TenKichThuoc}}
+                    </td>
+                    <td style="display: flex;flex-direction: column;">
+                        <input #fileinput style="display: none;" type="file" (change)="upfile($event)" id="file" />
+                        <span *ngFor="let img of item.HinhAnh,let i=index" class="img-container" style="display: flex;justify-content: center;align-items: center;"> <img style="width:50px;margin-bottom: 8px;cursor: pointer;"  [src]="img ? ('http://localhost:3000/'+img) : '/assets/admin-ui/img/1.png'" alt=""> <i (click)="deleteimg(i,item)" style="margin-left: 8px;transition: opacity .3s ease;font-size: 18px;cursor: pointer;" class="fa-solid fa-xmark"></i>
+                        </span>
+                        
+                        <i style="width: 27%;margin-left: auto;margin-right: auto;
+                        border: 1px solid gray;
+                        display: flex;
+                        justify-content: center;
+                        cursor: pointer;
+                        padding: 3px;
+                        border-radius: 50%;" class="fa-solid fa-plus" (click)="addImage(item)"></i>
+                    </td>
+                    <td>
+                        {{item.GiaBan | number}} đ
+                    </td>
+                    <td>
+                        {{item.SoLuongTon}}
+                    </td>
+
+                    <td>
+                        <!-- The Modal -->
+                        <i class="fa-solid fa-pen-to-square" (click)="edit(item.MaChiTietSanPham)"></i>
+
+                        <i class="fa-solid fa-trash" (click)="deleteData(item.MaChiTietSanPham)"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="pagination">
+        <ul>
+            <li>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (event) {
+        var showSetting = document.querySelector('.showmodel');
+        // Check if the clicked element has the specified ID
+        if (event.target.id === showSetting.getAttribute('data-target').substring(1)) {
+            // If the clicked element has the correct ID, set display to none for showSettingImg
+            if (showSetting) {
+                showSetting.style.display = 'block';
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        $('.box-user').click(function () {
+            $('.info-user').toggleClass("hidden");
+        })
+
+        $("#iconclose").click(function () {
+            $('.showmodel').hide();
+        })
+
+        $('.box-manage-menu').click(function (e) {
+            e.preventDefault();
+            $('.menu-item__list').toggle();
+        })
+
+    }
+    )
+</script>

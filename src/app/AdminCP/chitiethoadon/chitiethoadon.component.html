@@ -1,0 +1,116 @@
+<div class="col c-12 m-9 l-9">
+    <div class="main-content">
+        <div class="title">
+            <h4>Chi tiết đơn hàng</h4>
+        </div>
+        <hr class="gradient-line">
+        <div class="address_header">
+            <div class="location_receiving">
+                <a href="#"><i class="fa-solid fa-location-dot"></i> Địa chỉ nhận hàng</a>
+            </div>
+
+            <div class="index_receiving">
+                <p>
+                    Tên người nhận:  {{ detailbills[0].NguoiNhan }}
+                </p>
+                <p>
+                    Số điện thoại: {{ detailbills[0].DienThoaiNhan }}
+                </p>
+                <p>
+                   Địa chỉ nhận: {{ detailbills[0].DiaChiNhan }}
+                </p>
+            </div>
+        </div>
+
+        <div class="box-table">
+            <table class="chechout_table">
+                <thead>
+                    <tr>
+                        <th>
+                            Sản phẩm - Kích thước
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Tổng tiền
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of detailbills">
+                        <td
+                            style="display:flex;text-align: center;align-items: center;justify-content: center;border: none;">
+                            <img style="width: 100px;object-fit: cover;"
+                                [src]=" item.HinhAnh ? 'http://localhost:3000/' + item.HinhAnh : '' " alt="">
+                            <p style="margin-left: 10px;">{{ item.TenSanPham }} - {{item.TenKichThuoc}}
+                            </p>
+                        </td>
+                        
+                        <td>
+                            {{ item.SoLuong }}
+                        </td>
+                        <td>
+                            {{ item.GiaBan | number }} đ
+                        </td>
+                      
+                    </tr>
+
+                </tbody>
+            </table>
+
+  
+
+            <div class="box_end_table_checkout">
+                <div class="box_note_customer">
+                    <!-- Lời nhắn: <input type="text" value="Sản phẩm đẹp" disabled> -->
+                </div>
+                <div class="box_total_money">
+                    Tiền thanh toán: <i>({{ allquantity }}) sản phẩm:</i> <span> {{ getsummoney |
+                        number}} đ</span>
+                </div>
+
+                <hr style="height: 1px;width: 30%;background-color: rgba(0, 0, 0, 0.1);margin: 15px 0;">
+
+                <p>Tổng tiền hàng: <span>{{ getsummoney | currency:'VND':true }}</span></p>
+                
+            </div>
+        </div>
+
+        <div class="box_foote_checkout">
+            <div class="box_status">
+                <hr style="height: 1px;width: 100%;background-color: rgba(0, 0, 0, 0.1);margin: 15px 0;">
+                <div class="element_status">
+                    Trạng thái đơn hàng: <span>{{ (detailbills[0].TrangThai === 0) ? "Đang chờ duyệt" :
+                        (detailbills[0].TrangThai === 1) ? "Đang vận chuyển":"Đã giao" }}</span>
+                </div>
+                
+            </div>
+
+            <hr style="height: 1px;width: 100%;background-color: rgba(0, 0, 0, 0.1);margin: 15px 0;">
+            <div>
+                Phương thức thanh toán: <span style="color: red;">{{detailbills[0].HinhThucThanhToan}}</span>
+            </div>
+            <hr style="height: 1px;width: 100%;background-color: rgba(0, 0, 0, 0.1);margin: 15px 0;">
+            <div class="box_info_summary">
+               
+
+                <!-- <div class="box_info_totalmoney">
+                    <p>Tổng tiền hàng: <span>{{ getsummoney | currency:'VND':true }}</span></p>
+                    
+                </div> -->
+                <div class="box_info_btnbtn">
+                    <div class="box_info_btn" *ngIf="detailbills[0].TrangThai < 2">
+                        <button id="printButtons" (click)="update()">Duyệt đơn</button>
+                    </div>
+                    <div class="box_info_btn">
+                        <button id="printButtons" (click)="printPDF()">In Pdf</button>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+    </div>
+</div>

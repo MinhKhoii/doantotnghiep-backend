@@ -1,0 +1,171 @@
+<div class="main-content">
+    <div class="title">
+        <h3>Quản lý sản phẩm</h3>
+    </div>
+    <div class="gird box-manage">
+        <form class="row" action="" method="post">
+            <input type="number" name="productid" id="productid" style="display: none;">
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="tensanpham">Tên sản phẩm</label>
+                <input type="text" name="tensanpham" [(ngModel)]="datas.TenSanPham" 
+                    placeholder="Nhập thông tin sản phẩm" class="form-control">
+            </div>
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="loaisanpham">Loại sản phẩm</label>
+                <select name="loaisanpham" [(ngModel)]="datas.MaLoai" id="loaisanpham"
+                    class="form-control">
+                    <option *ngFor="let item of sploai" [value]="item.MaLoai">{{item.TenLoai}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="hang">Hãng</label>
+                <select name="hang" [(ngModel)]="datas.MaHang" id="hang" class="form-control">
+                    <option *ngFor="let item of hang" [value]="item.MaHang">{{item.TenHang}}</option>
+                </select>
+            </div>
+
+            <div class="col c-12 m-6 l-6 form-input">
+                <label for="trangthai">Trạng thái</label>
+                <select [(ngModel)]="datas.TrangThai" name="trangthai" id="trangthai"
+                    class="form-control">
+                    <option value="1">Hoạt động</option>
+                    <option value="0">Ngưng hoạt động</option>
+                </select>
+            </div>
+
+            <!-- <div class="col c-12 m-6 l-6 form-input">
+                <label for="motangan">Mô tả ngắn</label>
+                <input type="text" [(ngModel)]="datas.MoTaNgan" name="motangan" id="motangan"
+                    placeholder="Nhập mô tả ngắn sản phẩm" class="form-control">
+            </div> -->
+
+            <div class="col c-12 m-12 l-12 form-input">
+                <label for="mota">Mô tả</label>
+                <angular-editor [(ngModel)]="datas.MoTa" [config]="editorConfig"></angular-editor>
+            </div>
+
+                <!-- <div class="col c-12 m-6 l-6 form-input" style="margin-top: 20px;">
+                    <input type="file" ng-change="upfile()" ng-model="selectedFile" id="file" />
+                    <div style="margin-top: 5px;">
+                        <img ng-src="{{imageSrc}}" style="width: 200px;" alt="">
+                    </div>
+                    <button type="button" ng-click="uploadFile()">Upload</button>
+
+                </div> -->
+
+            <div class="col c-12 m-12 l-12 form-button">
+                <button (click)="addData()" type="button" class="btn-edit">{{btn}}</button>
+                <button type="button" class="btn-refresh">Làm mới</button>
+            </div>
+        </form>
+    </div>
+
+    <hr style="color: rgba(0,0,0,0.01);margin: 10px 0;">
+    <div class="box-search">
+        <form action="">
+            <span>Tìm kiếm: </span><input [(ngModel)]="searchTerm" placeholder="Tìm kiếm..." (input)="filterData($event)" type="text" placeholder="Nhập thông tin tìm kiếm">
+        </form>
+    </div>
+
+    <div class="box-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        STT
+                    </th>
+                    <th>
+                        Tên sản phẩm
+                    </th>
+                    <th>
+                        Tên loại
+                    </th>
+                    <th>
+                        Tên hãng
+                    </th>
+                    <th>
+                        Trang Thái
+                    </th>
+                    <th>
+                        Mô tả
+                    </th>
+
+                    <th>
+                        Chức năng
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data | paginate: {itemsPerPage: 10, currentPage: p }; let i = index">
+                    <td>
+                        {{i + 1 }}
+                    </td>
+                    <td>
+                        {{ item.TenSanPham }}
+                    </td>
+                    <td>
+                        {{item.TenLoai}}
+                    </td>
+                    <td>
+                        {{item.TenHang}}
+                    </td>
+                    <td>
+                        {{item.TrangThai.data[0] === 0 ? 'Khong hd' : 'hoat dong'}}
+                    </td>
+                    <td>
+                        {{item.MoTa}}
+                    </td>
+
+                    <td>
+
+                        <!-- The Modal -->
+                        <a [routerLink]="['/admin/chitietsp']" [queryParams]="{ id: item.MaSanPham }" ><i class="fa-solid fa-eye"></i></a>
+                        <i class="fa-solid fa-pen-to-square" (click)="edit(item.MaSanPham)"></i>
+                        <i class="fa-solid fa-trash" (click)="deleteData(item.MaSanPham)"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+    </div>
+    <div class="pagination">
+        <ul>
+            <li>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (event) {
+      var showSetting = document.querySelector('.showmodel');
+      // Check if the clicked element has the specified ID
+      if (event.target.id === showSetting.getAttribute('data-target').substring(1)) {
+        // If the clicked element has the correct ID, set display to none for showSettingImg
+        if (showSetting) {
+          showSetting.style.display = 'block';
+        }
+      }
+    });
+
+    $(document).ready(function () {
+      $('.box-user').click(function () {
+        $('.info-user').toggleClass("hidden");
+      })
+
+      $("#iconclose").click(function () {
+        $('.showmodel').hide();
+      })
+
+      $('.box-manage-menu').click(function (e) {
+        e.preventDefault();
+        $('.menu-item__list').toggle();
+      })
+
+    }
+    )
+  </script>

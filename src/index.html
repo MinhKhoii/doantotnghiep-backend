@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>NANARA - Chăn đệm cao cấp chính hãng Nhật Bản</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/my-ui/img/logo/logo-nanara.png">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+    integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <app-root></app-root>
+
+  <script src="https://kit.fontawesome.com/4871c7977c.js" crossorigin="anonymous"></script>
+
+  <!--    
+    <script>
+        var user = JSON.parse(localStorage.getItem('user'));
+        if (!user) {
+          window.location.href = "login.html";
+        }
+        function login(){
+            localStorage.removeItem("user")
+            window.location.href = "login.html"
+        }
+      </script> -->
+  <script>
+    $(document).ready(function () {
+      $('.box-user').click(function () {
+        $('.info-user').toggleClass("hidden");
+      })
+
+      $('.box-manage-menu').click(function (e) {
+        e.preventDefault();
+        $('.menu-item__list').toggle();
+      })
+
+    }
+    )
+  </script>
+
+</body>
+
+</html>

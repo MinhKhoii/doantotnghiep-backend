@@ -1,0 +1,285 @@
+
+
+<section class="grid col c-12 m-12 l-12" >
+    <div class="items-center ">
+        <ul>
+            <li><a [routerLink]="['/']">Trang chủ </a> </li>
+            <span> > </span>
+            <li> <a href=""> Bộ Chăn Ga </a></li>
+            <span> > </span>
+            <li> {{detaildata[0].TenSanPham}}</li>
+            
+        </ul>
+    </div>
+    <div class="product row">
+        <div class="imgslider">
+            <img [src]="detaildata[0].HinhAnh[0] ? 'http://localhost:3000/'+detaildata[0].HinhAnh[0] : ''" alt="">
+            <div class="imgslider1">
+                <img src="./assets/my-ui/img/product/Anh-bia-10.jpg" alt="">
+                <img src="./assets/my-ui/img/product/Anh-bia-10-1.jpg" alt="">
+                <img src="./assets/my-ui/img/product/Anh-bia-10-2.jpg" alt="">
+                <img src="./assets/my-ui/img/product/Anh-bia-10-3.jpg" alt="">
+            </div>
+        </div>
+        <div class="content">
+            <h2>{{detaildata[0].TenSanPham}}</h2>
+            <div class="flex">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <hr style="margin: 0 10px;;">
+                <span>Đã bán</span>
+            </div>
+            <div>
+                Kích Thước
+            </div>
+            <div class="kt">
+                <a *ngFor="let item of kt" (click)="changesize(item)" [ngClass]="item.TenKichThuoc == checksize ? 'active' : ''">{{item.TenKichThuoc}}</a>
+            </div>
+            <div class="gia">
+                {{detaildata[0].GiaBan|number}} đ
+            </div>
+            <!-- <div class="flex">
+                <label for="">Thông tin</label>
+                <div class="wysiwyg ">
+                    Xe máy SH160i Thể Thao 2023 được mọi người yêu thích với lối thiết
+                     kế thể thao trung tính, phù hợp với nhiều lứa tuổi khác nhau. Với 
+                     thiết kế, động cơ và tiện ích đầy đủ và hiện đại xe tay ga SH160i 
+                     Thể Thao 2023 hứa hẹn sẽ là dòng xe tay ga cao cấp có đủ sức thu 
+                     hút mọi ánh nhìn và không bao giờ phải làm bạn thất vọng. Tham khảo
+                    thông tin chi tiết về xe máy SH160i Thể Thao 2023 qua bài viết dưới đây. 
+                </div>
+            </div>
+            <a href="">Xem chi tiết</a> -->
+            <div class="flex1">
+                Số lượng 
+                <div class="cart_quantity">
+                    <div class="minus_quantity_cart" #minusQuantityButton>
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                    <input type="text" #cartInput id="cart_quantity" min="1" value="1">
+                    <div class="add_quantity_cart" #addQuantityButton>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                Đơn vị 
+                <span> Chiếc</span>
+            </div>
+            <div  class="flex">
+                <a class="btn btn-tinted"  (click)="addcart($event,detaildata[0])" [routerLink]="['/giohang']" >Thêm vào giỏ hàng</a>
+                <a class="btn btn-solid-primary" (click)="checkk($event)" href="thanhtoan.html">Mua ngay</a>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row" style="margin: 25px 35px;">
+        <div class="conten col c-12 m-9 l-9">
+            <div class="kP-bM3">
+                Mô Tả Sản Phẩm
+            </div>
+            <p>Xe máy SH160i Thể Thao 2023 được mọi người yêu thích với lối thiết kế thể thao trung tính, phù hợp với nhiều lứa tuổi khác nhau. Với thiết kế, động cơ và tiện ích đầy đủ và hiện đại xe tay ga SH160i Thể Thao 2023 hứa hẹn sẽ là dòng xe tay ga cao cấp có đủ sức thu hút mọi ánh nhìn và không bao giờ phải làm bạn thất vọng. Tham khảo thông tin chi tiết về xe máy SH160i Thể Thao 2023 qua bài viết dưới đây. </p>
+           <h1>Giới thiệu về xe máy SH160i Thể Thao 2023</h1>
+            <p>Xe máy SH160i Thể Thao 2023 được thiết kế nổi bật và là điểm nhấn của dòng xe máy SH160i với cách phối màu tinh tế và trang nhã đến từ nhà Honda. Được cải tiến từ dòng xe máy SH125i, xe máy SH160i kế thừa những điểm nổi bật nhất và được cải tiến thêm những chi tiết tinh tế trên xe. Các bạn có thể tham khảo thêm các dòng xe tay ga khác</p>
+            <img src="./assets/my-ui/img/banner/9.png" alt="">
+            <h1>Thông tin chi tiết xe máy SH160i Thể Thao 2023</h1>
+            <h3>1. Thiết kế xe máy SH160i Thể Thao 2023</h3>
+            <p>Nhìn tổng thể, thì thiết kế xe máy SH160i bản Thể Thao sẽ không có quá nhiều chi tiết mới nổi bật, xe được kế thừa gần như nguyên vẹn từ lối thiết kế cũ của xe máy SH125i bản thể thao. Tuy nhiên, nếu so sánh kĩ thì xe Honda SH160i Thể Thao sẽ có thêm tem xe 160i trên thân xe. Màu sắc trên xe được pha trộn hài hòa giữa màu xám và đen với màu chủ đạo là xám xi măng điểm vài nốt đen trầm tạo nên tổng thể thiết kế sang trọng, nhưng vẫn cuốn hút và đẳng cấp. Một số điểm nổi bật của thiết kế có được kể đến như: </p>
+            <ul>
+                <li>Cụm đèn trước full LED hiện đại.</li>
+                <li>Đèn chiếu sáng phía trước luôn được chiếu sáng.</li>
+                <li>Tay cầm lái thiết kế thể thao tinh tế.</li>
+                <li>Mặt đồng hồ số thông minh hiển thị thông số dễ dàng. </li>
+            </ul>
+            <img src="./assets/my-ui/img/banner/10.png" alt="">
+            <h3>2. Động cơ xe máy SH160i Thể Thao 2023</h3>
+            <p>Xe máy SH160i Thể Thao 2023 sở hữu khối động cơ 160cc, eSP+ 4 van giúp xe vận hành tốt trên mọi cung đường, đồng thời vẫn tiết kiệm nhiên liệu, thân thiện với môi trường. Ngoài khối động cơ mạnh mẽ đã được trang bị, SH160i Thể Thao 2023 còn được kết hợp thêm những công nghệ nổi bật, tiên tiến hàng đầu để đảm bảo an toàn cho người lái. Các công nghệ nổi bật được trang bị thêm trên xe máy SH160i Thể Thao 2023 như: </p>
+            <ul>
+                <li>Hệ thống HSTC hỗ trợ chống trượt bánh khi tăng ga.</li>
+                <li>Kết nối Bluetooth trên điện thoại thông minh hiển thị đầy đủ tình trạng xe.</li>
+            </ul>
+            <h3>3. Tiện ích và tính năng xe máy SH160i Thể Thao 2023</h3>
+            <p>Xe máy SH160i Thể Thao 2023 sẽ được trang bị những tiện ích và tính năng thông minh mang lại cho người lái trải nghiệm lái xe tốt nhất. Các tiện ích cũng như tính năng nổi bật của xe Honda SH160i Thể Thao 2023 có thể kể đến như: </p>
+            <ul>
+                <li>Trang bị hệ thống phanh ABS đảm bảo an toàn hơn khi thắng gấp.</li>
+                <li>Dung tích hộc lớn, có tích hợp thêm cổng sạc USB để sạc điện thoại.     </li>
+                <li>Bình xăng đặt phía trước tiện lợi. </li>
+                <li>Hệ thống khóa thông minh hiện đại, tiên tiến. </li>
+            </ul>
+            <h3>Hệ Thống Xe Máy Nam Tiến: </h3>
+            <ul class="x">
+                <li> Bảo hành 3 năm hoặc 30.000km.</li>
+                <li>Giao xe miễn phí tận nhà.</li>
+                <li>Hỗ trợ trả góp lãi suất 0% nhận cà vẹt gốc, thủ tục nhanh gọn</li>
+                <li>Tải app Nam Tiến Motor có cơ hội trúng thưởng lên đến 10 triệu, theo dõi sổ bảo hành và gọi cứu hộ xe máy dễ dàng, tiện lợi.</li>
+                <li>Quà tặng hấp dẫn: nón bảo hiểm Nam Tiến, áo mưa, phiếu thay nhớt giảm giá 30-50%, biển mica xin số, rửa xe miễn phí cho khách hàng từ thứ 2 đến thứ 6 hàng tuần.</li>
+                <li>Nhận thu xe cũ đổi xe mới.</li>
+            </ul>
+        </div>
+         sản phẩm -->
+         
+            
+    <!-- </div>  -->
+
+    <div class="col c-12 m-12 l-12 box_description">
+        <div class="tabs-title">
+            <div class="tab-link" [class.active]="activeTabIndex == 0" (click)="activateTab($event, 0)">
+                <a href="#">THÔNG TIN SẢN PHẨM</a>
+            </div>
+            <div class="tab-link" [class.active]="activeTabIndex == 1" (click)="activateTab($event, 1)">
+                <a href="#">THANH TOÁN VẬN CHUYỂN</a>
+            </div>
+            <div class="tab-link" [class.active]="activeTabIndex == 2" (click)="activateTab($event, 2)">
+                <a href="#">ĐÁNH GIÁ SẢN PHẨM</a>
+            </div>
+        </div>
+
+        <div class="tab-float">
+            <div class="tab-item" [class.active]="activeTabIndex == 0">
+                <p>
+                    <!-- {{ detailproduct[0].MoTa }} -->
+                </p>
+
+            </div>
+            <div class="tab-item" [class.active]="activeTabIndex == 1">
+                <p>
+                    Nội dung viết ở đây
+                </p>
+            </div>
+
+            <div class="grid tab-item" [class.active]="activeTabIndex == 2">
+                <div class="row box_evaluate">
+                    <div class="col c-6 m-6 l-6 average_rating">
+                        <div class="average_rating_content">
+                            <h3 class="title">
+                                Sao trung bình
+                            </h3>
+                            <h1 class="point_rating">
+                                {{ feedBackMediumStar }}
+                            </h1>
+                            <p class="quantity_rating">
+                                ({{ feedBacks.length }} lượt đánh giá)
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="col c-6 m-6 l-6 evalution_parameter">
+                        <h5 class="title">
+                            {{ feedBacks.length }} lượt đánh giá
+                        </h5>
+                        <p class="evalution_start"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            Có {{ feedBack5star }} lượt đánh giá
+                        </p>
+                        <p class="evalution_start"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                            Có {{ feedBack4star }} lượt đánh giá
+                        </p>
+                        <p class="evalution_start"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            Có {{ feedBack3star }} lượt đánh giá
+                        </p>
+                        <p class="evalution_start"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                            Có {{ feedBack2star }} lượt đánh giá
+                        </p>
+                        <p class="evalution_start"><i class="fa-solid fa-star"></i>
+                            Có {{ feedBack1star }} lượt đánh giá
+                        </p>
+                    </div>
+
+                    <div class="col c-12 m-12 l-12 evalution_comment_box">
+                        <div class="evalution_comment">
+                            <label for="area_comment">Viết đánh giá của bạn</label>
+                            <div>
+                                <textarea [(ngModel)]="feedBack.BinhLuan" name="area_comment" id="area_comment" style="width: 100%;"
+                                    rows="7"></textarea>
+                            </div>
+                        </div>
+                        <div class="btn_evulution_comment">
+                            <div class="picture_comment">
+                                <input #fileinput type="file" style="display:none;"  (change)="upfile($event)" id="file" />                             
+                                <i class="fa-solid fa-camera" (click)="fileinput.click()"></i>
+                                <span class="chosse_evulation_start" (mouseleave)="resetStars()">
+                                    <i #star1 class="fa-solid fa-star" (mouseenter)="hoverStar(0)" (click)="clickStar(0)"></i>
+                                    <i #star2 class="fa-solid fa-star" (mouseenter)="hoverStar(1)" (click)="clickStar(1)"></i>
+                                    <i #star3 class="fa-solid fa-star" (mouseenter)="hoverStar(2)" (click)="clickStar(2)"></i>
+                                    <i #star4 class="fa-solid fa-star" (mouseenter)="hoverStar(3)" (click)="clickStar(3)"></i>
+                                    <i #star5 class="fa-solid fa-star" (mouseenter)="hoverStar(4)" (click)="clickStar(4)"></i>
+                                </span>
+                               
+                                <i style="margin-left: 7px;cursor: pointer;line-height: 10px"  (click)="newStars()" class="fa-solid fa-arrows-rotate"></i>
+                               
+                                <div style="margin-top: 5px;">
+                                    <img style="width: 100px;" [src]="imageSrc" alt="">
+                                </div>
+                            </div>
+                            <div class="btn_comment">
+                                <button  (click)="btnEvaluate()" >Đánh giá</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col c-12 m-12 l-12 comment_box">
+                        <div class="item_comment" *ngFor="let item of feedBacks">
+                            <img [src]="getImageCustomerId(item.MaKhachHang)" alt="">
+                            <div class="info_customer">
+                                 <h3>
+                                    {{ item.HoVaTen }}
+                                 </h3>
+                                 <span *ngFor="let item of getStars(item.SoSao)">
+                                    <i class="fa-solid fa-star"></i>
+                                 </span>
+                                 <p style="font-style: oblique;">{{ item.NgayDang | date:'HH:mm:ss, dd-MM-yyyy' }}</p>
+                                 <p style="color: black;">{{ item.BinhLuan }}</p>
+                                 <img [hidden]="!item.HinhAnh" [src]="item.HinhAnh ? 'http://localhost:3000/'+item.HinhAnh : '' " alt="">
+                            </div>
+                        </div>
+                      
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row product" style="margin-top: 30px;">
+        <div class="col c-6 m-4 l-2-4" *ngFor="let item of data.slice(12,17)">
+            <div class="product1">
+                <a class="product-1" href="/chitiet/{{item.MaChiTietSanPham}}">
+                    <div class="iteam">
+                        <!-- <div class="gia">
+                            10% <span>GIẢM</span>
+                        </div> -->
+                        <!-- <div class="mua">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div> -->
+                    </div>
+                    <img [src]="item.HinhAnh[0] ? 'http://localhost:3000/'+item.HinhAnh[0] : ''" alt="">
+                    <h4>{{item.TenSanPham}}</h4>
+                    <h3>{{item.GiaBan|number}}đ</h3>
+                    <div class="product-slide">
+                        <div class="product-left1"><i class="fa-regular fa-heart"></i></div>
+                        <div class="product-right1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-slide">
+                        <div class="product-left">{{item.TenLoai}}</div>
+                        <div class="product-right">Việt nam</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+       
+    </div>
+</section>
+

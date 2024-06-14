@@ -1,0 +1,228 @@
+<section class="grid fame-checkout">
+    <div class="row">
+        <div class="col c-12 m-12 l-12 info_receive">
+
+            <div class="grid form-info">
+                <div class="row">
+                    <div class="col c-12 m-6 l-6 lable_header">
+                    <form action="" [formGroup]="formCheckout">
+
+                            <div class="box-header">
+                                <h4>Thông tin nhận hàng</h4>
+                                <a href="#"><i class="fa-solid fa-circle-user"></i> Đăng nhập</a>
+                            </div>
+                            <!-- 
+                            <div class="box-email">
+                                <input type="email" placeholder="Email" id="email" name="email">
+                            </div> -->
+    
+                            <div class="box-fullname">
+                                <!-- <label for="fullname">Họ và tên</label> -->
+                                <input [(ngModel)]="infoBill.NguoiNhan" formControlName="fullname" type="text" id="fullname"
+                                    placeholder="Họ và tên" name="fullname" required>
+                            </div>
+                            <div class="message-error" *ngIf="(formCheckout.get('fullname')?.hasError('required')) && (formCheckout.get('fullname')?.touched || submitted)">
+                                {{ formCheckout.get('fullname')?.hasError('required') ? 'Không được để trống.' : '' }}
+                            </div>  
+    
+    
+                            <div class="box-phone">
+    
+                                <input [(ngModel)]="infoBill.DienThoaiNhan" type="text" formControlName="phonenumbers"
+                                    id="phone" placeholder="Số điện thoại" name="phone" required>
+                                <!-- <select name="phone" id="country-code">
+                                    <option value="VietNam">Vietnam (+84)</option>
+                                    <option value="Yemen">Yemen (+967)</option>
+                                    <option value="Vatican">Vatican (+39)</option>
+                                </select> -->
+                            </div>
+    
+                            <div class="message-error" *ngIf="formCheckout.get('phonenumbers')?.touched || submitted">
+                                <ng-container *ngIf="formCheckout.get('phonenumbers')?.hasError('required')">
+                                    {{ 'Không được để trống.' }}
+                                </ng-container>
+                                <ng-container *ngIf="formCheckout.get('phonenumbers')?.hasError('minlength')">
+                                    {{ 'Số điện thoại phải có ít nhất 6 ký tự.' }}
+                                </ng-container>
+                                <ng-container *ngIf="formCheckout.get('phonenumbers')?.hasError('maxlength')">
+                                    {{ 'Số điện thoại không được vượt quá 10 ký tự.' }}
+                                </ng-container>
+                                <ng-container *ngIf="formCheckout.get('phonenumbers')?.hasError('pattern')">
+                                    {{ 'Số điện thoại phải là số.' }}
+                                </ng-container>
+                            </div>
+    
+    
+                            <div class="box-address">
+                                <!-- <label for="address">Địa chỉ nhận(ghi rõ địa chỉ nhận)</label> -->
+                                <input [(ngModel)]="infoBill.DiaChiNhan" formControlName="address" type="text" placeholder="Địa chỉ nhận"
+                                    id="address" name="address">
+    
+                            </div>
+    
+                            <div class="message-error" *ngIf="(formCheckout.get('address')?.hasError('required')) && (formCheckout.get('address')?.touched || submitted)">
+                                {{ formCheckout.get('address')?.hasError('required') ? 'Vui lòng nhập địa chỉ chi tiết hơn.' : '' }}
+                            </div>  
+
+                            <div class="message-error" *ngIf="(formCheckout.get('address')?.hasError('minlength')) && (formCheckout.get('address')?.touched || submitted)">
+                                {{ formCheckout.get('address')?.hasError('minlength') ? 'Vui lòng nhập địa chỉ chi tiết hơn.' : '' }}
+                            </div>  
+    
+    
+                            <H4 style="margin: 25px 10px 1px 10px;">Phương thức thanh toán</H4>
+                            <select name="phuongthucthanhtoan" id="phuongthucthanhtoan" (change)="methodbill($event)">
+                                <option value="Thanh toán khi nhận hàng">Thanh toán khi nhận hàng</option>
+                                <option value="Thanh toán ví vnpay">Thanh toán VN PAY</option>
+                            </select>
+    
+    
+                            <!-- <div class="box-province">
+                                <label for="province">Tỉnh thành</label>
+                                <select name="billingProvince" id="billingProvince">
+                                    <option value>---</option>
+                                    <option value="1">Thanh Hóa</option>
+                                    <option value="2">Hà Nội</option>
+                                    <option value="3">TP Hồ Chí Minh</option>
+                                    <option value="4">An Giang</option>
+                                    <option value="5">Bà Rịa - Vũng Tàu</option>
+                                    <option value="6">Bắc Giang</option>
+                                    <option value="7">Bắc Cạn</option>
+                                    <option value="8">Bạc Liêu</option>
+                                    <option value="9">Bắc Ninh</option>
+                                    <option value="10">Bến Tre</option>
+                                    <option value="11">Bình Dương</option>
+                                    <option value="12">Bình Định</option>
+                                    <option value="13">Đắc Lắc</option>
+                                    <option value="14">Hưng Yên</option>
+                                    <option value="15">Hà Nam</option>
+                                </select>
+                            </div> -->
+    
+    
+                            <!-- <div class="box-district">
+                                <label for="district">Quận huyện (tùy chọn)</label>
+                                <select name="billingDistrict" id="billingDistrict">
+                                    <option value>---</option>
+                                    <option value="1">Thị xã Sơn Tây</option>
+                                    <option value="2">Quận Ba Đình</option>
+                                    <option value="3">Quận Cầu Giấy</option>
+                                    <option value="4">Quận Đống Đa</option>
+                                    <option value="5">Quận Hà Đông</option>
+                                    <option value="6">Quận Hai Bà Trưng</option>
+                                    <option value="7">Quận Hoàn Kiếm</option>
+                                    <option value="8">Quận Hoàng Mai</option>
+                                    <option value="9">Quận Long Biên</option>
+                                    <option value="10">Quận Tây Hồ</option>
+                                    <option value="11">Huyện Quốc Oai</option>
+                                    <option value="12">Huyện Thanh Trì</option>
+                                    <option value="13">Huyện Thường Tín</option>
+                                    <option value="14">Quận Bắc Từ Liêm</option>
+                                    <option value="15">Huyện Ứng Hòa</option>
+                                </select>
+                            </div> -->
+                            <!-- <div class="box-note">
+                                <textarea name="note" placeholder="Ghi chú (tùy chọn)" id="note"></textarea>
+                            </div> -->
+                        </form>
+                    </div>
+
+                    <!-- Đơn hàng -->
+                    <div class="col c-12 m-6 l-5-5 info_order">
+                        <h3 class="title">
+                            Đơn hàng (<span class="quantity-order">{{sumquantity}}</span> sản phẩm)
+                        </h3>
+                        <form action="">
+                            <div class="content_cart" *ngFor="let item of data">
+                                <div class="content-item">
+                                    <div class="image_pro">
+                                        <img [src]="item.ProductPath ? 'http://localhost:3000/'+item.ProductPath : ''"
+                                            alt="">
+                                        <span class="quantity-order">{{item.Quantity}}</span>
+                                    </div>
+
+                                    <div class="name_pro">
+                                        <span>
+                                            {{item.ProductName}} - {{item.ProductSize}}
+                                        </span>
+
+                                    </div>
+                                    <div class="price_pro">
+                                        {{item.ProductPrice|number}} đ
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 
+                            <div class="code-sale">
+                                <form action="">
+                                    <div>Lời nhắn :</div>
+                                    <input type="text" placeholder="Lưu ý cho người bán" name="codeSale"
+                                        id="codeSale">
+                                </form>
+                            </div> -->
+
+                            <div class="total-price">
+                                <div class="provisional_box">
+                                    <p>Tạm tính</p>
+                                    <span class="provisional">{{ sum | number}} đ</span>
+                                </div>
+
+                                <!-- <div class="transportfee_box">
+                                    <p>Phí vận chuyển</p>
+                                    <span class="transportfee">40.000đ</span>
+                                </div> -->
+
+                                <div class="total_box">
+                                    <p>Tổng cộng</p>
+                                    <span class="totalPrice">{{ sum | number}} đ</span>
+                                </div>
+                            </div>
+
+                            <div class="order-item-last">
+                                <div class="item_back_cart">
+                                    <i class="fa-solid fa-angle-left"></i> <a class="link_cart"
+                                        [routerLink]="['/giohang']">Quay lại giỏ hàng</a>
+                                </div>
+                                <button (click)="chechout()" type="submit">ĐẶT HÀNG</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--  -->
+                    <div class="col c-12 m-6 l-6 lable_header_right">
+                        <!-- <div class="lable_header1">
+                            <h4>Vận chuyển</h4>
+
+                            <div class="box-transport">
+                                <div class="radio-wrapper">
+                                    <input type="radio" name="radio" id="transport-radio" checked>
+                                </div>
+
+                                <div class="shippingMethod">
+                                    <span class="transport_method">Giao hàng tận nơi</span>
+                                    <span class="shipping_price">40.000₫</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lable_header1">
+                            <h4 style="margin-top: 30px;">Thanh toán</h4>
+
+                            <div class="box-pay">
+                                <div class="radio-wrapper">
+                                    <input type="radio" name="radio-pay" id="transport-radio">
+                                </div>
+
+                                <div class="payMethod">
+                                    <span class="pay_method">Thanh toán khi giao hàng (OCD)</span>
+                                    <span class="pay_icon"><i class="fa-regular fa-money-bill-1"></i></span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>

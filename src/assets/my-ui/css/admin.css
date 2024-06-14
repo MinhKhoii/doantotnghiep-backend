@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+    position: 0px;
+    margin: 0px auto;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #153b52;
+}
+
+.header .box-login {
+    color: white;
+    font-size: 14px;
+    border-left: 1px solid;
+    padding: 15.5px 10px;
+    width: auto;
+    float: right;
+}
+
+.header .box-login .box-login-bottom {
+    height: auto;
+    width: auto;
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 0px;
+}
+
+.header .box-login .box-login-bottom button {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    background-color: #0483cc;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.header .box-login .box-login-bottom button:hover {
+    background-color: #295a77;
+}
+
+.box-login:hover .box-login-bottom {
+    display: block;
+}
+
+.main .row .category a {
+    display: block;
+    background-color: #f3f3f3;
+    color: black;
+    padding: 20px 16px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 490;
+}
+
+.main .row .category a:hover {
+    background-color: #ddd;
+    border-right: 2px solid #123950;
+}
+
+.main .row .category a.active {
+    background-color: #ccc;
+    border-right: 2px solid #123950;
+}
+
+
+.main .row .tabcontent {
+    padding: 15px 10px 10px 10px;
+}
+
+.main .row .content .tabcontent .title {
+    font-weight: bold;
+    color: #204961;
+    margin: 0px 0px 10px 0px;
+}
+
+.main .row .content .tabcontent .title button {
+    border: none;
+    color: white;
+    background-color: #123950;
+    padding: 8px 5px;
+    float: right;
+    border-radius: 4px;
+}
+
+.main .row .content .tabcontent .title button:hover {
+    background-color: #2e6a8c;
+}
+
+.main .row .content .tabcontent .title hr {
+    border: 1px solid #204961;
+    background-color: #204961;
+    width: 300px;
+    margin-left: 0px;
+    margin-top: 5px;
+}
+
+.main .row .content .tabcontent .row .padding-box {
+    padding: 10px 8px 0px 8px;
+}
+
+
+
+.main .row .content .tabcontent .row .padding-box input,select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.main .row .content .tabcontent .row .padding-box button {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+    background-color: #123950;
+    color: white;
+}
+
+.main .row .content .tabcontent .row .padding-box button:hover {
+    background-color: #295a77;
+}
+
+
+
+
+.main .row .content .tabcontent .row .padding-box table {
+    width: 100%;
+}
+
+.main .row .content .tabcontent .row .padding-box table,th,td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+
+.main .row .content .tabcontent .row .padding-box table th,td {
+    padding: 5px 10px;
+}
+
+.main .row .content .tabcontent .row .padding-box table th img {
+    width: 100%;
+}
+
+
+
+
+
+.main .row .content .tabcontent hr {
+    border: 1px solid rgb(54, 53, 53);
+    background-color: rgb(54, 53, 53);
+    margin: 20px 0px 15px 0px;
+}
+
+.main .row .content .tabcontent .btn-form {
+
+    border-radius: 5px;
+    padding: 10px 10px;
+    color: white;
+    font-size: 14px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.main .row .content .tabcontent .btn-form:hover {
+    opacity: 1;
+}
+
+
+
+
+.main .row .content .tabcontent .row .padding-box .box-sum {
+    width: 100%;
+    height: 65px;
+    background-color: #d9edf7;
+    border: 1px solid #bce8f1;
+    padding: 10px;
+}
+
+.main .row .content .tabcontent .row .padding-box .box-sum .box-left {
+    font-size: 16px;
+    float: left;
+}
+
+.main .row .content .tabcontent .row .padding-box .box-sum .box-left span {
+    color: red;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.main .row .content .tabcontent .row .padding-box .box-sum .box-right {
+    float: right;
+    margin-top: 9px;
+}
+
+.main .row .content .tabcontent .row .padding-box .box-sum .box-right button {
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+    font-size: 14px;
+    border: none;
+}
+
+.main .row .content .tabcontent .row .padding-box .box-sum .box-right button:hover {
+    background-color: #282e32;
+}
+
+
+
+
+/*Trang Tổng quan*/
+.main .row .content .tabcontent .row .box {
+    border-radius: 5px;
+    width: 100%;
+    min-height: 75px;
+    color: white;
+}
+
+.main .row .content .tabcontent .row .box .box-left {
+    font-size: 22px;
+    float: left;
+    padding: 20px;
+}
+
+.main .row .content .tabcontent .row .box .box-right {
+    font-size: 16px;
+    font-weight: 50%;
+    padding: 16px 0px;
+    float: left;
+}
+
+
+.main .row .content .tabcontent .row .box2 {
+    border-radius: 5px;
+    width: 100%;
+    height: 180px;
+    margin-top: 15px;
+}
+
+.main .row .content .tabcontent .row .box2 .box2-top {
+    padding: 12px;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.main .row .content .tabcontent .row .box2 .box2-bot {
+    padding: 12px 15px;
+    font-size: 14px;
+}
+
+.main .row .content .tabcontent .row .box2 .box2-bot .box2-bot-left {
+    float: left;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.main .row .content .tabcontent .row .box2 .box2-bot .box2-bot-right {
+    float: left;
+    width: 50%;
+    margin-bottom: 10px;
+    text-align: right;
+}

@@ -1,0 +1,68 @@
+
+<div class="cont">
+  <div class="form sign-in">
+    <h2>Đăng nhập</h2>
+    <label>
+      <span>Email</span>
+      <input [(ngModel)]="user.email" (input)="onInputEmail()" type="email" />
+      <span *ngIf="isEmailInvalid" class="message">{{ message.email }}</span>
+    </label>
+    <label>
+      <span>Password</span>
+      <input [(ngModel)]="user.password" type="password" (input)="onInputPassWord()" />
+      <span *ngIf="isPasswordInvalid" class="message">{{ message.password }}</span>
+
+    </label>
+    <p class="forgot-pass">Quên mật khẩu?</p>
+    <button type="button" class="submit" (click)="onSubmit()">Đăng nhập</button>
+    <button type="button" class="fb-btn">Đăng nhập với <span>Facebook</span></button>
+  </div>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>Đăng ký ở đây?</h2>
+        <p>Đăng ký và khám phá rất nhiều cơ hội mới!</p>
+      </div>
+      <div class="img__text m--in">
+        <h2>Một trong số chúng tôi?</h2>
+        <p>Nếu bạn đã có tài khoản, chỉ cần đăng nhập. Chúng tôi nhớ bạn!</p>
+      </div>
+      <div class="img__btn">
+        <span class="m--up">Đăng ký</span>
+        <span class="m--in">Đăng nhập</span>
+      </div>
+    </div>
+
+    
+    <div class="form sign-up">
+      <h2>Đăng ký</h2>
+      <label>
+        <span>Họ và tên</span>
+        <input [(ngModel)]="user.name" (input)="onInputName()" type="text" />
+        <span *ngIf="isNameInvalid" class="message">{{ message_resgistration.name }}</span>
+      </label>
+      <label>
+        <span>Email</span>
+        <input [(ngModel)]="user_registration.email" (input)="onInputRegisEmail()" type="email" />
+        <span *ngIf="isEmailResgisInvalid" class="message">{{ message_resgistration.email }}</span>
+      </label>
+      <label>
+        <span>Password</span>
+        <input [(ngModel)]="user_registration.password" type="password" (input)="onInputRegisPassWord()" />
+        <span *ngIf="isPasswordResgisInvalid" class="message">{{ message_resgistration.password }}</span>
+      </label>
+      <label>
+        <span>Địa chỉ</span>
+        <input [(ngModel)]="user.address" (input)="onInputAddressnumber()" type="text"  />
+        <span *ngIf="isAddressInvalid" class="message">{{ message_resgistration.address }}</span>
+      </label>
+      <label>
+        <span>Số điện thoại</span>
+        <input [(ngModel)]="user.phone" (input)="onInputPhonenumber()" type="text" />
+        <span *ngIf="isPhoneInvalid" class="message">{{ message_resgistration.phone }}</span>
+      </label>
+      <button type="button" class="submit" (click)="onSubmitRegistration()">Đăng ký</button>
+      
+    </div>
+  </div>
+</div>
